@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+<meta http-equiv="refresh" content="300" />
+<title>監視ツール</title>
+<style type="text/css">
+h3 { margin: 0.5em; }
+</style>
+</head>
+<body>
+@foreach (var grouping in Model.GroupBy(_ => _.Category))
+{
+<h3>@grouping.Key</h3>
+foreach (var info in grouping)
+{
+<table>
+<tbody>
+<tr>
+<tr>
+<td>
+<a href="@(info.Id).htm"><img src="@(info.Id)-day.png" alt="day graph" /></a>
+</td>
+<td>
+<a href="@(info.Id).htm"><img src="@(info.Id)-week.png" alt="week graph" /></a>
+</td>
+</tr>
+</tr>
+</tbody>
+</table>
+}
+}
+</body>
+</html>
