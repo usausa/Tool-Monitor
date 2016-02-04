@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED5AF233-023F-410E-9874-07D1BA32EB10}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		Settings.StyleCop = Settings.StyleCop
 		Tool.Monitor.ruleset = Tool.Monitor.ruleset
 		Tool.Monitor.sln.DotSettings = Tool.Monitor.sln.DotSettings
 	EndProjectSection

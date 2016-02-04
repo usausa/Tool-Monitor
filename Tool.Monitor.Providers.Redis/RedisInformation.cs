@@ -7,7 +7,7 @@
     using System.Linq;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class RedisInformation
     {
@@ -20,7 +20,7 @@
         private DateTime lastUpdated = DateTime.MinValue;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="client"></param>
         /// <param name="option"></param>
@@ -31,7 +31,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dateTime"></param>
         /// <param name="keys"></param>
@@ -53,7 +53,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         private void UpdateInformation()
         {

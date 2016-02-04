@@ -6,16 +6,16 @@
     using System.Linq;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed class DiskValueProvider : IValueProvider
     {
         private readonly DriveInfo[] driveInfos;
 
-        public string[] DataSources { get; private set; }
+        public string[] DataSources { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public DiskValueProvider()
         {
@@ -27,14 +27,14 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Dispose()
         {
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>

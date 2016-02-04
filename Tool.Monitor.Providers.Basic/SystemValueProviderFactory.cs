@@ -4,12 +4,12 @@
     using System.Linq;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class SystemValueProviderFactory : IValueProviderFactory
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="parameters"></param>
         public void Initialize(ILookup<string, string> parameters)
@@ -17,7 +17,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>
@@ -31,7 +31,7 @@
                     return new ProcessValueProvider();
             }
 
-            throw new ArgumentException("Type unknown.", "parameters");
+            throw new ArgumentException("Type unknown.", nameof(parameters));
         }
     }
 }

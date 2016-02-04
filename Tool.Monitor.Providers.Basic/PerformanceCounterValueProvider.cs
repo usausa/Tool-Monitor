@@ -5,7 +5,7 @@
     using System.Linq;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed class PerformanceCounterValueProvider : IValueProvider
     {
@@ -13,10 +13,10 @@
 
         private readonly float multiply;
 
-        public string[] DataSources { get; private set; }
+        public string[] DataSources { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="counters"></param>
         /// <param name="multiply"></param>
@@ -29,7 +29,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Dispose()
         {
@@ -40,7 +40,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>

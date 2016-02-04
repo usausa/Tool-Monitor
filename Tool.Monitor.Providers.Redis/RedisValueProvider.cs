@@ -4,7 +4,7 @@
     using System.Linq;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed class RedisValueProvider : IValueProvider
     {
@@ -12,10 +12,10 @@
 
         private readonly string[] keys;
 
-        public string[] DataSources { get; private set; }
+        public string[] DataSources { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="redisInformation"></param>
         /// <param name="keys"></param>
@@ -27,14 +27,14 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Dispose()
         {
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>

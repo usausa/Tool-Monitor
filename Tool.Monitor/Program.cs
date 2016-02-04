@@ -11,14 +11,14 @@
     using RazorEngine.Templating;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public static class Program
     {
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(Program));
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="args"></param>
         public static void Main(string[] args)
@@ -53,7 +53,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="config"></param>
         private static void PrepareRRDTool(Config config)
@@ -67,7 +67,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="config"></param>
         private static void CreateTemplate(Config config)
