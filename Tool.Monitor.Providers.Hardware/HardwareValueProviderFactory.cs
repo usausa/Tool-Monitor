@@ -5,14 +5,14 @@
     using OpenHardwareMonitor.Hardware;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class HardwareValueProviderFactory : IValueProviderFactory
     {
         private HardwareMonitor monitor;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="parameters"></param>
         public void Initialize(ILookup<string, string> parameters)
@@ -32,7 +32,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>

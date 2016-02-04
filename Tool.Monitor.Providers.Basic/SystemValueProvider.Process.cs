@@ -5,29 +5,29 @@
     using System.Linq;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed class ProcessValueProvider : IValueProvider
     {
-        public string[] DataSources { get; private set; }
+        public string[] DataSources { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ProcessValueProvider()
         {
             DataSources = new[] { "processes", "threads" };
         }
-        
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Dispose()
         {
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>

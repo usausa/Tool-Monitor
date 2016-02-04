@@ -6,12 +6,12 @@
     using Quartz;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class MonitorJob : IJob
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="context"></param>
         public void Execute(IJobExecutionContext context)

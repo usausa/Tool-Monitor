@@ -6,12 +6,12 @@
     using System.Linq;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class PerformanceCounterValueProviderFactory : IValueProviderFactory
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="parameters"></param>
         public void Initialize(ILookup<string, string> parameters)
@@ -19,7 +19,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>

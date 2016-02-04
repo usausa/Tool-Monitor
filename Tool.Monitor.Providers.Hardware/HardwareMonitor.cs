@@ -7,7 +7,7 @@
     using OpenHardwareMonitor.Hardware;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class HardwareMonitor
     {
@@ -22,7 +22,7 @@
         private DateTime lastUpdated = DateTime.MinValue;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="computer"></param>
         public HardwareMonitor(Computer computer)
@@ -35,7 +35,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dateTime"></param>
         /// <param name="keys"></param>

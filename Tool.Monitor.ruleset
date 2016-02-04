@@ -12,4 +12,18 @@
     <Rule Id="CA1824" Action="None" />
     <Rule Id="CA2210" Action="None" />
   </Rules>
+  <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA1101" Action="Hidden" />
+    <Rule Id="SA1121" Action="Hidden" />
+    <Rule Id="SA1201" Action="Hidden" />
+    <Rule Id="SA1202" Action="Hidden" />
+    <Rule Id="SA1606" Action="Hidden" />
+    <Rule Id="SA1614" Action="Hidden" />
+    <Rule Id="SA1616" Action="Hidden" />
+    <Rule Id="SA1623" Action="Hidden" />
+    <Rule Id="SA1633" Action="Hidden" />
+    <Rule Id="SA1642" Action="Hidden" />
+    <Rule Id="SA1649" Action="Hidden" />
+    <Rule Id="SA1652" Action="Hidden" />
+  </Rules>
 </RuleSet>

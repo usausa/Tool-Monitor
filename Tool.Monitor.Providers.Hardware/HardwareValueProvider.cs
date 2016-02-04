@@ -5,7 +5,7 @@
     using System.Linq;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed class HardwareValueProvider : IValueProvider
     {
@@ -13,10 +13,10 @@
 
         private readonly string[] keys;
 
-        public string[] DataSources { get; private set; }
+        public string[] DataSources { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="monitor"></param>
         /// <param name="keys"></param>
@@ -28,14 +28,14 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Dispose()
         {
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>

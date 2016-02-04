@@ -3,12 +3,12 @@
     using OpenHardwareMonitor.Hardware;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class UpdateVisitor : IVisitor
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="computer"></param>
         public void VisitComputer(IComputer computer)
@@ -17,7 +17,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="hardware"></param>
         public void VisitHardware(IHardware hardware)
@@ -30,7 +30,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="sensor"></param>
         public void VisitSensor(ISensor sensor)
@@ -38,7 +38,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="parameter"></param>
         public void VisitParameter(IParameter parameter)

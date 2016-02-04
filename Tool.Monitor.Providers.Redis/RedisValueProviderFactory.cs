@@ -3,14 +3,14 @@
     using System.Linq;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class RedisValueProviderFactory : IValueProviderFactory
     {
         private RedisInformation redisInformation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="parameters"></param>
         public void Initialize(ILookup<string, string> parameters)
@@ -19,7 +19,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="parameters"></param>
         /// <returns></returns>

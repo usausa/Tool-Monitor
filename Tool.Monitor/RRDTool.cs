@@ -8,7 +8,7 @@
     using System.Text;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class RRDTool
     {
@@ -23,7 +23,7 @@
         public string[] Colors { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="sourceType"></param>
@@ -48,13 +48,14 @@
                 sb.Append(sourceType);
                 sb.Append(":600:U:U");
             }
+
             sb.Append(" RRA:AVERAGE:0.5:1:735840");
 
             Run(sb.ToString());
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="time"></param>
@@ -78,15 +79,17 @@
                 {
                     sb.Append("U");
                 }
+
                 sb.Append(":");
             }
+
             sb.Length = sb.Length - 1;
 
             Run(sb.ToString());
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="id"></param>
         /// <param name="suffix"></param>
@@ -116,6 +119,7 @@
                 sb.Append(" ");
                 sb.Append(option);
             }
+
             for (var i = 0; i < dataSources.Length; i++)
             {
                 sb.Append(" DEF:value");
@@ -126,8 +130,9 @@
                 sb.Append(dataSources[i]);
                 sb.Append(":AVERAGE");
             }
+
             sb.Append(" COMMENT:\"                    Cur          Avg          Min          Max\\n\"");
-            for (var i = 0; i < labels.Length; i++) 
+            for (var i = 0; i < labels.Length; i++)
             {
                 sb.Append(" ");
                 sb.Append(draw);
@@ -160,7 +165,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="arguments"></param>
         private void Run(string arguments)

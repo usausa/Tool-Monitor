@@ -10,14 +10,14 @@
     using Tool.Monitor.Providers;
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class XmlContextLoader
     {
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(XmlContextLoader));
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
@@ -42,7 +42,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
@@ -58,7 +58,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
@@ -75,7 +75,7 @@
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="elements"></param>
         /// <returns></returns>
@@ -96,11 +96,12 @@
                 instance.Initialize(element.XPathSelectElements("Parameter/*").ToLookup(_ => _.Name.ToString(), _ => _.Value));
                 factories[element.XPathSelectElement("Type").Value] = instance;
             }
+
             return factories;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="elements"></param>
         /// <param name="factories"></param>
@@ -126,11 +127,12 @@
                     GraphOption = CreateGraphOption(element.XPathSelectElement("GraphOption"))
                 });
             }
+
             return collectors.ToArray();
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
