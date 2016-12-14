@@ -20,10 +20,10 @@
         public DiskValueProvider()
         {
             driveInfos = Enumerable.Range('A', 26)
-                .Select(_ => new DriveInfo(((char)_).ToString(CultureInfo.InvariantCulture)))
-                .Where(_ => _.IsReady && _.DriveType == DriveType.Fixed)
+                .Select(x => new DriveInfo(((char)x).ToString(CultureInfo.InvariantCulture)))
+                .Where(x => x.IsReady && x.DriveType == DriveType.Fixed)
                 .ToArray();
-            DataSources = driveInfos.Select(_ => _.Name.Substring(0, 1)).ToArray();
+            DataSources = driveInfos.Select(x => x.Name.Substring(0, 1)).ToArray();
         }
 
         /// <summary>
@@ -40,7 +40,7 @@
         /// <returns></returns>
         public float?[] Collect(DateTime dateTime)
         {
-            return driveInfos.Select(_ => (float?)(100 - (100f * _.TotalFreeSpace / _.TotalSize))).ToArray();
+            return driveInfos.Select(x => (float?)(100 - (100f * x.TotalFreeSpace / x.TotalSize))).ToArray();
         }
     }
 }

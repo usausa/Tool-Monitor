@@ -27,7 +27,7 @@
             var yearStart = now.AddDays(-365).ToUnixTime();
             var dateTime = now.ToUnixTime();
 
-            foreach (var set in collectors.Select(_ => new { Collector = _, Values = _.ValueProvider.Collect(now) }).ToList())
+            foreach (var set in collectors.Select(x => new { Collector = x, Values = x.ValueProvider.Collect(now) }).ToList())
             {
                 var id = set.Collector.Id;
                 var go = set.Collector.GraphOption;

@@ -53,7 +53,7 @@
                 ExePath = element.XPathSelectElement("ExePath").Value,
                 DataDir = element.XPathSelectElement("DataDir").Value,
                 OutputDir = element.XPathSelectElement("OutputDir").Value,
-                Colors = element.XPathSelectElements("Colors/Color").Select(_ => _.Value).ToArray()
+                Colors = element.XPathSelectElements("Colors/Color").Select(x => x.Value).ToArray()
             };
         }
 
@@ -93,7 +93,7 @@
                 }
 
                 var instance = (IValueProviderFactory)Activator.CreateInstance(type);
-                instance.Initialize(element.XPathSelectElements("Parameter/*").ToLookup(_ => _.Name.ToString(), _ => _.Value));
+                instance.Initialize(element.XPathSelectElements("Parameter/*").ToLookup(x => x.Name.ToString(), x => x.Value));
                 factories[element.XPathSelectElement("Type").Value] = instance;
             }
 
@@ -123,7 +123,7 @@
                 {
                     Id = element.XPathSelectElement("Id").Value,
                     Category = element.XPathSelectElement("Category").Value,
-                    ValueProvider = factory.Create(element.XPathSelectElements("ValueProvider/Parameter/*").ToLookup(_ => _.Name.ToString(), _ => _.Value)),
+                    ValueProvider = factory.Create(element.XPathSelectElements("ValueProvider/Parameter/*").ToLookup(x => x.Name.ToString(), x => x.Value)),
                     GraphOption = CreateGraphOption(element.XPathSelectElement("GraphOption"))
                 });
             }
@@ -144,8 +144,8 @@
                 SourceType = element.XPathSelectElement("SourceType").Value,
                 Draw = element.XPathSelectElement("Draw").Value,
                 Option = element.XPathSelectElement("Option").Value,
-                Labels = element.XPathSelectElements("Labels/Label").Select(_ => _.Value).ToArray(),
-                Colors = element.XPathSelectElements("Colors/Color").Select(_ => _.Value).ToArray()
+                Labels = element.XPathSelectElements("Labels/Label").Select(x => x.Value).ToArray(),
+                Colors = element.XPathSelectElements("Colors/Color").Select(x => x.Value).ToArray()
             };
         }
     }

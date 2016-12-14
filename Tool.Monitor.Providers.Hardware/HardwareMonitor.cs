@@ -52,10 +52,10 @@
                 lastUpdated = dateTime;
             }
 
-            return keys.Select(_ =>
+            return keys.Select(x =>
             {
                 float? value;
-                return infomations.TryGetValue(_, out value) ? value : null;
+                return infomations.TryGetValue(x, out value) ? value : null;
             }).ToArray();
         }
     }

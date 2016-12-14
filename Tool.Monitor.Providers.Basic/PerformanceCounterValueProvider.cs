@@ -46,7 +46,7 @@
         /// <returns></returns>
         public float?[] Collect(DateTime dateTime)
         {
-            return counters.Select(_ => (float?)(_.NextValue() * multiply)).ToArray();
+            return counters.Select(x => (float?)(x.NextValue() * multiply)).ToArray();
         }
     }
 }
