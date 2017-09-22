@@ -23,7 +23,7 @@
         {
             this.redisInformation = redisInformation;
             this.keys = keys;
-            DataSources = keys.Select(_ => _.Substring(0, Math.Min(_.Length, 19))).ToArray();
+            DataSources = keys.Select(x => x.Substring(0, Math.Min(x.Length, 19))).ToArray();
         }
 
         /// <summary>

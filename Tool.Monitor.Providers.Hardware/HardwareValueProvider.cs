@@ -24,7 +24,7 @@
         {
             this.monitor = monitor;
             this.keys = keys;
-            DataSources = Enumerable.Range(0, keys.Length).Select(_ => _.ToString(CultureInfo.InvariantCulture)).ToArray();
+            DataSources = Enumerable.Range(0, keys.Length).Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray();
         }
 
         /// <summary>

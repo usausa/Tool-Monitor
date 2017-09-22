@@ -34,7 +34,7 @@
         public float?[] Collect(DateTime dateTime)
         {
             var processes = Process.GetProcesses().ToArray();
-            return new float?[] { processes.Length, processes.Sum(_ => _.Threads.Count) };
+            return new float?[] { processes.Length, processes.Sum(x => x.Threads.Count) };
         }
     }
 }

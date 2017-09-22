@@ -10,7 +10,7 @@ h3 { margin: 0.5em; }
 </style>
 </head>
 <body>
-@foreach (var grouping in Model.GroupBy(_ => _.Category))
+@foreach (var grouping in Model.GroupBy(x => x.Category))
 {
 <h3>@grouping.Key</h3>
 foreach (var info in grouping)

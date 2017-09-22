@@ -45,10 +45,10 @@
                 lastUpdated = dateTime;
             }
 
-            return keys.Select(_ =>
+            return keys.Select(x =>
             {
                 string value;
-                return infomations.TryGetValue(_, out value) ? (float?)Single.Parse(value, CultureInfo.InvariantCulture) : null;
+                return infomations.TryGetValue(x, out value) ? (float?)Single.Parse(value, CultureInfo.InvariantCulture) : null;
             }).ToArray();
         }
 
@@ -76,9 +76,9 @@
 
                 var output = proc.StandardOutput.ReadToEnd();
                 infomations = output.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(_ => _.Split(':'))
-                    .Where(_ => _.Length > 1)
-                    .ToDictionary(_ => _[0], _ => _[1].Replace("\r", string.Empty));
+                    .Select(x => x.Split(':'))
+                    .Where(x => x.Length > 1)
+                    .ToDictionary(x => x[0], x => x[1].Replace("\r", string.Empty));
             }
         }
     }

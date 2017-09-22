@@ -38,12 +38,12 @@
             var pcc = new PerformanceCounterCategory(category);
             if (pcc.CategoryType == PerformanceCounterCategoryType.SingleInstance)
             {
-                return new PerformanceCounterValueProvider(new[] { new PerformanceCounter(category, counter) }, multiply, new[] { "_" });
+                return new PerformanceCounterValueProvider(new[] { new PerformanceCounter(category, counter) }, multiply, new[] { "x" });
             }
 
-            var instanceNames = pcc.GetInstanceNames().OrderBy(_ => _).ToArray();
+            var instanceNames = pcc.GetInstanceNames().OrderBy(x => x).ToArray();
             return new PerformanceCounterValueProvider(
-                instanceNames.Select(_ => new PerformanceCounter(category, counter, _)).ToArray(), multiply, instanceNames);
+                instanceNames.Select(x => new PerformanceCounter(category, counter, x)).ToArray(), multiply, instanceNames);
         }
     }
 }
