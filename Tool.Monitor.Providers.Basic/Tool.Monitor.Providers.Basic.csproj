@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Tool.Monitor.Providers.Abstractions\Tool.Monitor.Providers.Abstractions.csproj" />
   </ItemGroup>
 
