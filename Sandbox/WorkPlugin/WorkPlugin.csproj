@@ -6,4 +6,8 @@
     <CodeAnalysisRuleSet>..\..\Analyzers.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WorkPlugin.Abstractions\WorkPlugin.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>

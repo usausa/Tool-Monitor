@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkService", "WorkService\WorkService.csproj", "{D85BEF1D-A47F-40D7-BED9-7C137B2C6A42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkPlugin", "WorkPlugin\WorkPlugin.csproj", "{8A88DFB8-8490-4321-8981-CC018461D419}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E788A8F2-F273-4159-B523-F91E3D820722} = {E788A8F2-F273-4159-B523-F91E3D820722}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{B972025D-23C5-4C05-B6EA-622191C1CB30}"
 EndProject
