@@ -5,26 +5,38 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkEndPoint", "WorkEndPoint\WorkEndPoint.csproj", "{3200DBF6-C10E-467F-AE14-F98583F8CFF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkPrometheus", "WorkPrometheus\WorkPrometheus.csproj", "{4001F8E4-6ACC-4E22-B4C7-42A6FA056EBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkPrometheus", "WorkPrometheus\WorkPrometheus.csproj", "{4001F8E4-6ACC-4E22-B4C7-42A6FA056EBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkService", "WorkService\WorkService.csproj", "{D85BEF1D-A47F-40D7-BED9-7C137B2C6A42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkService", "WorkService\WorkService.csproj", "{D85BEF1D-A47F-40D7-BED9-7C137B2C6A42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkPlugin", "WorkPlugin\WorkPlugin.csproj", "{8A88DFB8-8490-4321-8981-CC018461D419}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkPlugin", "WorkPlugin\WorkPlugin.csproj", "{8A88DFB8-8490-4321-8981-CC018461D419}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E788A8F2-F273-4159-B523-F91E3D820722} = {E788A8F2-F273-4159-B523-F91E3D820722}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{B972025D-23C5-4C05-B6EA-622191C1CB30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkModel", "WorkModel\WorkModel.csproj", "{5D61B381-4982-4D4A-9BC0-18525BB2CD28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkModel", "WorkModel\WorkModel.csproj", "{5D61B381-4982-4D4A-9BC0-18525BB2CD28}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6BA75EF8-0EF2-4F6A-85C5-C0A422F20322}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugin", "Plugin", "{F94E3EB3-7788-4A7F-9120-0C08ED166E1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkPlugin.Abstractions", "WorkPlugin.Abstractions\WorkPlugin.Abstractions.csproj", "{560747F9-CD10-4571-A221-6C52DA2201A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkPlugin.Abstractions", "WorkPlugin.Abstractions\WorkPlugin.Abstractions.csproj", "{560747F9-CD10-4571-A221-6C52DA2201A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkPlugin.Plugin1", "WorkPlugin.Plugin1\WorkPlugin.Plugin1.csproj", "{E788A8F2-F273-4159-B523-F91E3D820722}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkPlugin.Plugin1", "WorkPlugin.Plugin1\WorkPlugin.Plugin1.csproj", "{E788A8F2-F273-4159-B523-F91E3D820722}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Metrics", "Metrics", "{09220B6A-742F-456D-9D79-F1B7D15F3943}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkMetricsSimple", "WorkMetricsSimple\WorkMetricsSimple.csproj", "{5433351F-76F1-428E-83D4-B2F0C045453C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkMetricsPrometheus", "WorkMetricsPrometheus\WorkMetricsPrometheus.csproj", "{F1EF7BF6-5CDC-43FB-9A8C-0A33EDFF708E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkMetricsObserver", "WorkMetricsObserver\WorkMetricsObserver.csproj", "{B1271B80-8B9B-4125-9AF6-8F103CD98BE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenTelemetry", "OpenTelemetry", "{2FEEFCEC-2B2D-4C45-9B25-B26D39E1D612}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Network", "Network", "{125A2903-9E98-4E08-B246-A40977D94129}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +72,18 @@ Global
 		{E788A8F2-F273-4159-B523-F91E3D820722}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E788A8F2-F273-4159-B523-F91E3D820722}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E788A8F2-F273-4159-B523-F91E3D820722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5433351F-76F1-428E-83D4-B2F0C045453C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5433351F-76F1-428E-83D4-B2F0C045453C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5433351F-76F1-428E-83D4-B2F0C045453C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5433351F-76F1-428E-83D4-B2F0C045453C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1EF7BF6-5CDC-43FB-9A8C-0A33EDFF708E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1EF7BF6-5CDC-43FB-9A8C-0A33EDFF708E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1EF7BF6-5CDC-43FB-9A8C-0A33EDFF708E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1EF7BF6-5CDC-43FB-9A8C-0A33EDFF708E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1271B80-8B9B-4125-9AF6-8F103CD98BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1271B80-8B9B-4125-9AF6-8F103CD98BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1271B80-8B9B-4125-9AF6-8F103CD98BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1271B80-8B9B-4125-9AF6-8F103CD98BE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +96,9 @@ Global
 		{5D61B381-4982-4D4A-9BC0-18525BB2CD28} = {6BA75EF8-0EF2-4F6A-85C5-C0A422F20322}
 		{560747F9-CD10-4571-A221-6C52DA2201A3} = {F94E3EB3-7788-4A7F-9120-0C08ED166E1E}
 		{E788A8F2-F273-4159-B523-F91E3D820722} = {F94E3EB3-7788-4A7F-9120-0C08ED166E1E}
+		{5433351F-76F1-428E-83D4-B2F0C045453C} = {09220B6A-742F-456D-9D79-F1B7D15F3943}
+		{F1EF7BF6-5CDC-43FB-9A8C-0A33EDFF708E} = {09220B6A-742F-456D-9D79-F1B7D15F3943}
+		{B1271B80-8B9B-4125-9AF6-8F103CD98BE7} = {09220B6A-742F-456D-9D79-F1B7D15F3943}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {05C48E10-6843-429E-86F8-EB409FF0FA3B}
