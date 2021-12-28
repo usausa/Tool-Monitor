@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkService", "WorkService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkService.Plugin", "WorkService.Plugin\WorkService.Plugin.csproj", "{BCE5CF89-E0F9-4D4C-B901-4B8449884416}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkPeriod", "WorkPeriod\WorkPeriod.csproj", "{3E9B6A86-8F2B-4175-99A9-A2CE764073C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{BCE5CF89-E0F9-4D4C-B901-4B8449884416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCE5CF89-E0F9-4D4C-B901-4B8449884416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCE5CF89-E0F9-4D4C-B901-4B8449884416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E9B6A86-8F2B-4175-99A9-A2CE764073C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9B6A86-8F2B-4175-99A9-A2CE764073C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9B6A86-8F2B-4175-99A9-A2CE764073C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9B6A86-8F2B-4175-99A9-A2CE764073C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +121,7 @@ Global
 		{B1271B80-8B9B-4125-9AF6-8F103CD98BE7} = {09220B6A-742F-456D-9D79-F1B7D15F3943}
 		{DDBB4CA7-AC12-4CBD-BA99-B6193526FCC7} = {25D4DD08-FBC3-4DD8-B7C6-189BB6FC0103}
 		{BCE5CF89-E0F9-4D4C-B901-4B8449884416} = {25D4DD08-FBC3-4DD8-B7C6-189BB6FC0103}
+		{3E9B6A86-8F2B-4175-99A9-A2CE764073C2} = {25D4DD08-FBC3-4DD8-B7C6-189BB6FC0103}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {05C48E10-6843-429E-86F8-EB409FF0FA3B}
