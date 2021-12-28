@@ -1,3 +1,5 @@
+using System.Reflection;
+
 using Serilog;
 
 var builder = Host.CreateDefaultBuilder(args);
@@ -35,6 +37,9 @@ public class Worker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        var assembly = Assembly.LoadFrom("WorkService.Plugin.dll");
+        logger.LogInformation("Assembly name=[{Name}]", assembly.FullName);
+
         while (!stoppingToken.IsCancellationRequested)
         {
             logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
