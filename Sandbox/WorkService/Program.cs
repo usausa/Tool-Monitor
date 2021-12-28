@@ -1,11 +1,44 @@
-var builder = WebApplication.CreateBuilder(args);
+using Serilog;
 
-// Add services to the container.
+var builder = Host.CreateDefaultBuilder(args);
 
-var app = builder.Build();
+builder.UseWindowsService();
+Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
 
-// Configure the HTTP request pipeline.
+builder
+    .ConfigureLogging((_, logging) =>
+    {
+        logging.ClearProviders();
+    })
+    .UseSerilog((hostingContext, loggerConfiguration) =>
+    {
+        loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration);
+    });
 
-app.MapGet("/", () => "test");
+builder.ConfigureServices(services =>
+{
+    services.AddHostedService<Worker>();
+});
 
-app.Run();
+var host = builder.Build();
+
+await host.RunAsync();
+
+public class Worker : BackgroundService
+{
+    private readonly ILogger<Worker> logger;
+
+    public Worker(ILogger<Worker> logger)
+    {
+        this.logger = logger;
+    }
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+            await Task.Delay(5000, stoppingToken);
+        }
+    }
+}
