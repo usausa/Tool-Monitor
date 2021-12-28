@@ -45,5 +45,4 @@ public class IntervalTimer
 
         await Task.Delay(wait, cancellation);
     }
-
 }
