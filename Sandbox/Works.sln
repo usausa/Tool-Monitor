@@ -59,6 +59,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hardware", "Hardware", "{76
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkHardware", "WorkHardware\WorkHardware.csproj", "{CC3569AB-8D9B-4139-B4E2-297E6E6F67F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkHardwareCollector", "WorkHardwareCollector\WorkHardwareCollector.csproj", "{53FACE38-A130-474D-91B1-0857E4C5BBEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{CC3569AB-8D9B-4139-B4E2-297E6E6F67F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC3569AB-8D9B-4139-B4E2-297E6E6F67F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3569AB-8D9B-4139-B4E2-297E6E6F67F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53FACE38-A130-474D-91B1-0857E4C5BBEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53FACE38-A130-474D-91B1-0857E4C5BBEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53FACE38-A130-474D-91B1-0857E4C5BBEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53FACE38-A130-474D-91B1-0857E4C5BBEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +161,7 @@ Global
 		{D6C2E7EA-51A6-41CA-B4CB-50BE8BE6FD10} = {125A2903-9E98-4E08-B246-A40977D94129}
 		{CE070571-088C-4C7B-A4D7-B0D34F27E751} = {125A2903-9E98-4E08-B246-A40977D94129}
 		{CC3569AB-8D9B-4139-B4E2-297E6E6F67F6} = {76093074-E400-4EA5-9955-260A7C540851}
+		{53FACE38-A130-474D-91B1-0857E4C5BBEE} = {76093074-E400-4EA5-9955-260A7C540851}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {05C48E10-6843-429E-86F8-EB409FF0FA3B}
