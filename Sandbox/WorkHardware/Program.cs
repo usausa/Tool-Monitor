@@ -6,7 +6,7 @@ using LibreHardwareMonitor.Hardware;
 
 public static class Program
 {
-    private static readonly List<ISensor> sensors = new();
+    private static readonly List<ISensor> Sensors = new();
 
     public static async Task Main()
     {
@@ -47,7 +47,7 @@ public static class Program
 
         Debug.WriteLine("----------");
 
-        var values = sensors.Where(x => x.Hardware.HardwareType == HardwareType.Cpu && x.SensorType == SensorType.Load).ToArray();
+        var values = Sensors.Where(x => x.Hardware.HardwareType == HardwareType.Cpu && x.SensorType == SensorType.Load).ToArray();
 
         var timer = new PeriodicTimer(TimeSpan.FromSeconds(5));
         while (true)
@@ -96,8 +96,8 @@ public static class Program
 
     private static void SensorAdded(ISensor sensor)
     {
-        sensors.Add(sensor);
-        Debug.WriteLine($"**** Add Sensor: {SensorId(sensor)}:{sensor.SensorType} [{sensor.Identifier}] value: {sensor.Value}");
+        Sensors.Add(sensor);
+        Debug.WriteLine($"**** Add Sensor: {sensor.Hardware.Name}:{sensor.Hardware.HardwareType}::{sensor.SensorType}:{SensorId(sensor)} [{sensor.Identifier}] value: {sensor.Value}");
     }
 
     private static string SensorId(ISensor sensor)
@@ -128,7 +128,12 @@ public class UpdateVisitor : IVisitor
             subHardware.Accept(this);
         }
     }
-    public void VisitSensor(ISensor sensor) { }
 
-    public void VisitParameter(IParameter parameter) { }
+    public void VisitSensor(ISensor sensor)
+    {
+    }
+
+    public void VisitParameter(IParameter parameter)
+    {
+    }
 }

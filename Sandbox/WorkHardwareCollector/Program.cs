@@ -1,7 +1,6 @@
 namespace WorkHardwareCollector;
 
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -15,11 +14,11 @@ public static class Program
         //var json = "{ \"Types\": \"Motherboard\" }";
         //var json = "{ \"Types\": [] }";
         //var json = "{ \"Types\": null }";
-        var data1 = JsonSerializer.Deserialize<Data>("{ \"Items\": [\"Motherboard\", {\"Type\":\"Cpu\",\"Name\":\"cpu\"}] }");
-        var data2 = JsonSerializer.Deserialize<Data>("{ \"Items\": {\"Type\":\"Cpu\",\"Name\":\"cpu\"} }");
-        var data3 = JsonSerializer.Deserialize<Data>("{ \"Items\": \"Motherboard\" }");
-        var data4 = JsonSerializer.Deserialize<Data>("{ \"Items\": [] }");
-        var data5 = JsonSerializer.Deserialize<Data>("{ \"Items\": null }");
+        //var data1 = JsonSerializer.Deserialize<Data>("{ \"Items\": [\"Motherboard\", {\"Type\":\"Cpu\",\"Name\":\"cpu\"}] }");
+        //var data2 = JsonSerializer.Deserialize<Data>("{ \"Items\": {\"Type\":\"Cpu\",\"Name\":\"cpu\"} }");
+        //var data3 = JsonSerializer.Deserialize<Data>("{ \"Items\": \"Motherboard\" }");
+        //var data4 = JsonSerializer.Deserialize<Data>("{ \"Items\": [] }");
+        //var data5 = JsonSerializer.Deserialize<Data>("{ \"Items\": null }");
 
         var computer = new Computer
         {
@@ -277,7 +276,6 @@ public class UpdateVisitor : IVisitor
 
     public void VisitParameter(IParameter parameter) { }
 }
-
 
 public class LookupVisitor : IVisitor
 {
