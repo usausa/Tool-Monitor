@@ -11,8 +11,15 @@ public static class Program
 {
     public static void Main()
     {
-        var json = "{ \"Items\": null }";
-        var data = JsonSerializer.Deserialize<Data>(json);
+        //var json = "{ \"Types\": [ \"Motherboard\", \"Motherboard\" ] }";
+        //var json = "{ \"Types\": \"Motherboard\" }";
+        //var json = "{ \"Types\": [] }";
+        //var json = "{ \"Types\": null }";
+        var data1 = JsonSerializer.Deserialize<Data>("{ \"Items\": [\"Motherboard\", {\"Type\":\"Cpu\",\"Name\":\"cpu\"}] }");
+        var data2 = JsonSerializer.Deserialize<Data>("{ \"Items\": {\"Type\":\"Cpu\",\"Name\":\"cpu\"} }");
+        var data3 = JsonSerializer.Deserialize<Data>("{ \"Items\": \"Motherboard\" }");
+        var data4 = JsonSerializer.Deserialize<Data>("{ \"Items\": [] }");
+        var data5 = JsonSerializer.Deserialize<Data>("{ \"Items\": null }");
 
         var computer = new Computer
         {
@@ -32,9 +39,9 @@ public static class Program
         var visitor = new LookupVisitor(
             SensorType.Fan,
             null,
-            new object[] { "Fan #2", "Fan #7", new FilterEntry { HardwareType = HardwareType.GpuNvidia } },
+            new object[] { "Fan #2", "Fan #7", new FilterEntry { Type = HardwareType.GpuNvidia } },
             null,
-            new object[] { new FilterEntry { HardwareType = HardwareType.GpuNvidia } });
+            new object[] { new FilterEntry { Type = HardwareType.GpuNvidia } });
         //var visitor = new LookupVisitor(
         //    SensorType.Fan,
         //    null,
@@ -46,7 +53,7 @@ public static class Program
         //    null,
         //    null,
         //    null,
-        //    new object[] { new FilterEntry { HardwareType = HardwareType.GpuNvidia } });
+        //    new object[] { new FilterEntry { Type = Type.GpuNvidia } });
         visitor.VisitComputer(computer);
 
         Debug.WriteLine("-----");
@@ -87,99 +94,166 @@ public static class Program
 
 public class Data
 {
-    [AllowNull]
-    [JsonConverter(typeof(CustomConverter))]
-    public object[] Items { get; set; }
+    [JsonConverter(typeof(ComplexFilterConverter))]
+    public object[]? Items { get; set; }
+
+    [JsonConverter(typeof(ComplexHardwareConverter))]
+    public HardwareType[]? Types { get; set; }
 }
 
-public class CustomConverter : JsonConverter<object[]>
+public sealed class ComplexHardwareConverter : JsonConverter<HardwareType[]>
 {
-    public override object[] Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override HardwareType[] Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        if (reader.TokenType != JsonTokenType.StartArray)
+        if (reader.TokenType == JsonTokenType.String)
         {
-            throw new JsonException();
+            return new[] { Enum.Parse<HardwareType>(reader.GetString()!) };
         }
-
-        var objects = new List<object>();
-
-        do
+        if (reader.TokenType == JsonTokenType.StartArray)
         {
-            if (!reader.Read())
-            {
-                throw new JsonException("Read error.");
-            }
+            var hardwareTypes = new List<HardwareType>();
 
-            if (reader.TokenType == JsonTokenType.String)
+            while (true)
             {
-                objects.Add(reader.GetString()!);
-            }
-            else if (reader.TokenType == JsonTokenType.StartObject)
-            {
-                var entry = new FilterEntry();
-
                 if (!reader.Read())
                 {
                     throw new JsonException("Read error.");
                 }
 
-                do
+                if (reader.TokenType == JsonTokenType.String)
                 {
-                    if (reader.TokenType != JsonTokenType.PropertyName)
-                    {
-                        throw new JsonException("Invalid entry.");
-                    }
-
-                    var property = reader.GetString()!;
-
-                    if (!reader.Read())
-                    {
-                        throw new JsonException("Read error.");
-                    }
-
-                    if (reader.TokenType != JsonTokenType.String)
-                    {
-                        throw new JsonException("Invalid property value.");
-                    }
-
-                    var value = reader.GetString()!;
-
-                    switch (property)
-                    {
-                        case "Type":
-                            entry.HardwareType = Enum.Parse<HardwareType>(value);
-                            break;
-                        case "Name":
-                            entry.Name = value;
-                            break;
-                        default:
-                            throw new JsonException("Invalid property name.");
-                    }
-
-                    if (!reader.Read())
-                    {
-                        throw new JsonException("Read error.");
-                    }
+                    hardwareTypes.Add(Enum.Parse<HardwareType>(reader.GetString()!));
                 }
-                while (reader.TokenType != JsonTokenType.EndObject);
+                else if (reader.TokenType == JsonTokenType.EndArray)
+                {
+                    break;
+                }
+                else
+                {
+                    throw new JsonException("Unsupported type.");
+                }
+            }
 
-                objects.Add(entry);
+            return hardwareTypes.ToArray();
+        }
+
+        throw new JsonException("Unsupported type.");
+    }
+
+    public override void Write(Utf8JsonWriter writer, HardwareType[] value, JsonSerializerOptions options) =>
+        throw new NotSupportedException();
+}
+
+public sealed class ComplexFilterConverter : JsonConverter<object[]>
+{
+    public override object[] Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        if (reader.TokenType == JsonTokenType.String)
+        {
+            return new object[] { reader.GetString()! };
+        }
+        if (reader.TokenType == JsonTokenType.StartObject)
+        {
+            return new object[] { ParseEntry(ref reader) };
+        }
+        if (reader.TokenType == JsonTokenType.StartArray)
+        {
+            var objects = new List<object>();
+
+            while (true)
+            {
+                if (!reader.Read())
+                {
+                    throw new JsonException("Read error.");
+                }
+
+                if (reader.TokenType == JsonTokenType.String)
+                {
+                    objects.Add(reader.GetString()!);
+                }
+                else if (reader.TokenType == JsonTokenType.StartObject)
+                {
+                    objects.Add(ParseEntry(ref reader));
+                }
+                else if (reader.TokenType == JsonTokenType.EndArray)
+                {
+                    break;
+                }
+                else
+                {
+                    throw new JsonException("Unsupported type.");
+                }
+            }
+
+            return objects.ToArray();
+        }
+
+        throw new JsonException("Unsupported type.");
+    }
+
+    private static FilterEntry ParseEntry(ref Utf8JsonReader reader)
+    {
+        if (!reader.Read())
+        {
+            throw new JsonException("Read error.");
+        }
+
+        var entry = new FilterEntry();
+
+        while (true)
+        {
+            if (reader.TokenType == JsonTokenType.EndObject)
+            {
+                break;
+            }
+
+            if (reader.TokenType != JsonTokenType.PropertyName)
+            {
+                throw new JsonException("Invalid entry.");
+            }
+
+            var property = reader.GetString()!;
+
+            if (!reader.Read())
+            {
+                throw new JsonException("Read error.");
+            }
+
+            if (reader.TokenType != JsonTokenType.String)
+            {
+                throw new JsonException("Invalid property value.");
+            }
+
+            var value = reader.GetString()!;
+
+            switch (property)
+            {
+                case "Type":
+                    entry.Type = Enum.Parse<HardwareType>(value);
+                    break;
+                case "Name":
+                    entry.Name = value;
+                    break;
+                default:
+                    throw new JsonException("Invalid property name.");
+            }
+
+            if (!reader.Read())
+            {
+                throw new JsonException("Read error.");
             }
         }
-        while (reader.TokenType != JsonTokenType.EndArray);
 
-        return objects.ToArray();
+        return entry;
     }
 
-    public override void Write(Utf8JsonWriter writer, object[] value, JsonSerializerOptions options)
-    {
-        throw new NotImplementedException();
-    }
+    public override void Write(Utf8JsonWriter writer, object[] value, JsonSerializerOptions options) =>
+        throw new NotSupportedException();
 }
 
 public class FilterEntry
 {
-    public HardwareType? HardwareType { get; set; }
+    public HardwareType? Type { get; set; }
 
     public string? Name { get; set; }
 }
@@ -323,7 +397,7 @@ public class LookupVisitor : IVisitor
             }
             else if (filter is FilterEntry entry)
             {
-                if ((!entry.HardwareType.HasValue || (entry.HardwareType.Value == sensor.Hardware.HardwareType)) &&
+                if ((!entry.Type.HasValue || (entry.Type.Value == sensor.Hardware.HardwareType)) &&
                     (String.IsNullOrEmpty(entry.Name) || (entry.Name == sensor.Name)))
                 {
                     return true;
