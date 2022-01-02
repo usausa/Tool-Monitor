@@ -30,6 +30,10 @@ public static class Program
         Dump("tcp4_connections_established", Prepare("TCPv4", "Connections Established"));
         // TODO SQL
         // TODO IIS
+        // Hyper-V
+        Dump("vm_health_ok", Prepare("Hyper-V Virtual Machine Health Summary", "Health Ok"));
+        Dump("vm_health_ng", Prepare("Hyper-V Virtual Machine Health Summary", "Health Critical"));
+        Dump("vm_vid_partitions", Prepare("Hyper-V VM Vid Driver", "VidPartitions"));
     }
 
     private static void Dump(string name, PerformanceCounter[] counters, float? multiply = null)

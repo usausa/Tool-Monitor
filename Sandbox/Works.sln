@@ -63,9 +63,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkHardwareCollector", "Wo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Counter", "Counter", "{FAD180A0-06C6-46AE-9ADC-19DBFD5ACA1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkCounter", "WorkCounter\WorkCounter.csproj", "{902073CD-C2A4-4C5F-AC99-4FA0E46CA800}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkCounter", "WorkCounter\WorkCounter.csproj", "{902073CD-C2A4-4C5F-AC99-4FA0E46CA800}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkBitmap", "WorkBitmap\WorkBitmap.csproj", "{ADA1C2E7-A085-4416-B0F8-C9DACE48CD26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkBitmap", "WorkBitmap\WorkBitmap.csproj", "{ADA1C2E7-A085-4416-B0F8-C9DACE48CD26}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkPowerShell", "WorkPowerShell\WorkPowerShell.csproj", "{F24243B0-D94E-4064-82AA-B3BEE7B19CD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +151,10 @@ Global
 		{ADA1C2E7-A085-4416-B0F8-C9DACE48CD26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADA1C2E7-A085-4416-B0F8-C9DACE48CD26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADA1C2E7-A085-4416-B0F8-C9DACE48CD26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F24243B0-D94E-4064-82AA-B3BEE7B19CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F24243B0-D94E-4064-82AA-B3BEE7B19CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F24243B0-D94E-4064-82AA-B3BEE7B19CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F24243B0-D94E-4064-82AA-B3BEE7B19CD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
